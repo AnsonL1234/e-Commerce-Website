@@ -1,0 +1,16 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" extends="struts-default">
+
+	<action name="storeUser" class="SessionExample" method ="storeUsername">
+         <result name="success">/showUserFromSession.jsp</result>
+	    <result name="fail">/fail.jsp</result>
+   </action>
+		
+	
+		
+    </package>
+</struts>
