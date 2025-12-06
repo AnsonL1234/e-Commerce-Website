@@ -1,0 +1,87 @@
+package org.onlinebusiness.servlet.StructsAction;
+
+import org.apache.struts2.interceptor.SessionAware;
+import org.onlinebusiness.servlet.dao.User;
+import org.onlinebusiness.servlet.repository.UserDAO;
+
+import java.util.Map;
+
+public class RegisterStruts implements SessionAware {
+
+    private UserDAO userDAO;
+    private User user;
+    private String username;
+    private String password;
+    private String first_name;
+    private String last_name;
+    private double balance;
+    private String email_address;
+    private Map<String, Object> session;
+
+    public RegisterStruts () {
+
+    }
+
+    public RegisterStruts(UserDAO userDAO, User user) {
+        this.userDAO = userDAO;
+        this.user = user;
+    }
+
+    @Override
+    public void setSession(Map map) {
+        this.session = map;
+    }
+
+    public String registerUser() {
+        user = new User(this.username, this.password, this.first_name, this.last_name, this.balance, this.email_address);
+        return userDAO.storeUser(user);
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public String getEmail_address() {
+        return email_address;
+    }
+
+    public void setEmail_address(String email_address) {
+        this.email_address = email_address;
+    }
+}

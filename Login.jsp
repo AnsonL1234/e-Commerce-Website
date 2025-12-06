@@ -20,8 +20,8 @@
     <div class="logo_container">
         
     </div>
-    <form action="">
+    <s:form action="userLogin">
         <label for="username">Username</label>
-    </form>
+    </s:form>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <struts>
     <package name="default" extends="struts-default">
 
-        <action name="storeUser" class="SessionExample" method ="storeUsername">
+        <action name="userLogin" class="org.onlinebusiness.servlet.StructsAction.LoginStruts" method ="login">
             <result name="success">/Homepage.jsp</result>
             <result name="fail">/fail.jsp</result>
         </action>

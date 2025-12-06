@@ -31,7 +31,7 @@ public class LoginStruts implements SessionAware {
         this.session = map;
     }
 
-    public String login() {
+    public String userLogin() {
         User user = userDAO.login(username, password);
         if (user != null) {
             session.put("currentUser", user);
