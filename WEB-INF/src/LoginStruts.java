@@ -9,13 +9,9 @@ import java.util.Map;
 public class LoginStruts implements SessionAware {
 
     private String username;
-
     private String password;
-    private User user;
-
-    private UserDAO userDAO;
-
     private Map<String, Object> session;
+    private UserDAO userDAO = new UserDAO();
 
     public LoginStruts() {
 
@@ -31,7 +27,8 @@ public class LoginStruts implements SessionAware {
         this.session = map;
     }
 
-    public String userLogin() {
+    public String login() {
+        System.out.println("DEBUG: username=" + username + ", password=" + password);
         User user = userDAO.login(username, password);
         if (user != null) {
             session.put("currentUser", user);

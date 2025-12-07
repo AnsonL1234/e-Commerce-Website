@@ -5,9 +5,9 @@
 <struts>
     <package name="default" extends="struts-default">
 
-        <action name="userLogin" class="org.onlinebusiness.servlet.StructsAction.LoginStruts" method ="login">
-            <result name="success">/Homepage.jsp</result>
-            <result name="fail">/fail.jsp</result>
+        <action name="userLogin" class="org.onlinebusiness.servlet.StructsAction.LoginStruts" method="login">
+            <result name="success">/index.jsp</result>
+            <result name="fail">/Fail.jsp</result>
         </action>
         	
     </package>

@@ -29,7 +29,9 @@
             <img src="assets/wallet.png" alt="icons" class="walleticon" id="openDialog">
             <img src="assets/grocery-store.png" alt="icons" class="groceryicon">
             <button type="button" class="loginBtn">
-                Login
+                <a href="Login.jsp">
+                    Login
+                </a>
             </button>
         </div>
     </header>
@@ -53,7 +55,7 @@
         <form action="" class="topup_form">
             <input type="text" name="addBalance" id="addBalance" class="addBalanceField">
             <button type="submit" class="topupBtn">
-                Top Up
+                    Top Up
             </button>
         </form>
     </div>

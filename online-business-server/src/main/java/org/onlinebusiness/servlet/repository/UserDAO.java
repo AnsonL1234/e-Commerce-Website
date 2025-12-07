@@ -1,6 +1,6 @@
 package org.onlinebusiness.servlet.repository;
 
-import org.onlinebusiness.servlet.dao.User;
+import org.onlinebusiness.servlet.entity.User;
 
 import java.sql.*;
 
@@ -8,7 +8,7 @@ public class UserDAO {
 
     private final String URL = "jdbc:mysql://localhost:3306/ecommerce";
     private final String USERNAME = "root";
-    private final String PASSWORD = "dtbs@anson_1001";
+    private final String PASSWORD = "root";
     private Connection connection = null;
 
     public User login(String username, String password) {
@@ -23,7 +23,7 @@ public class UserDAO {
             ps.setString(1, username);
             ps.setString(2, password);
 
-            ResultSet returnResult = ps.executeQuery(loginQuery);
+            ResultSet returnResult = ps.executeQuery();
             if (returnResult.next()) {
                 user = new User();
                 user.setUsername(returnResult.getString("username"));

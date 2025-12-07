@@ -1,4 +1,4 @@
-package org.onlinebusiness.servlet.dao;
+package org.onlinebusiness.servlet.entity;
 
 public class Item {
     private int ItemID;

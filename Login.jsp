@@ -1,11 +1,12 @@
-<!-- <%@page contentType="text/html" pageEncoding="UTF-8"%> -->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-<!-- <%@taglib uri="/struts-tags" prefix="s" %> -->
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <!-- jQuery script and css-->
     <!-- Source: https://www.geeksforgeeks.org/jquery/how-to-generate-a-simple-popup-using-jquery/ -->
@@ -16,12 +17,20 @@
     <link rel="stylesheet" href="css/Login.css">
     <title>ArtCraft - Login Page</title>
 </head>
-<body>
+<body id="root">
     <div class="logo_container">
         
     </div>
-    <s:form action="userLogin">
-        <label for="username">Username</label>
-    </s:form>
+    <div class="loginFrm_container">
+        <div class="loginFrm_title_container">
+            <h2>Login Form</h2>
+        </div>
+        <s:form action="userLogin" cssClass="loginFrm">
+            <s:textfield name="username" label="Username" cssClass="usernameFld"/>
+            <s:textfield name="password" label="Password" cssClass="passwordFld"/>
+            <s:submit cssClass="loginBtn" value="Login"/>
+        </s:form>
+        <a href="http://">Doesn't have an account? Click to Register!</a>
+    </div>
 </body>
 </html>
