@@ -85,6 +85,30 @@ header {
 .searchicons:active {
     opacity: .4;
 }
+.userTag_container {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.userIcons {
+    width: 2rem;
+    height: 2rem;
+}
+.loginFrm_userInfo_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.first_name_tag {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+.email_address_tag {
+    color: white;
+    font-size: 8px;
+}
+
 
 .right_header_container {
     padding-right: 10px;

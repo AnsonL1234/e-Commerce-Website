@@ -28,11 +28,27 @@
             <img src="assets/more.png" alt="plusIcons" class="plusIcons">
             <img src="assets/wallet.png" alt="icons" class="walleticon" id="openDialog">
             <img src="assets/grocery-store.png" alt="icons" class="groceryicon">
-            <button type="button" class="loginBtn">
-                <a href="Login.jsp">
-                    Login
-                </a>
-            </button>
+            
+            <!-- If currentUser is not null mean user has login in -->
+            <!-- sources: https://www.tutorialspoint.com/struts_2/struts_if_else_tags.htm -->
+            <s:if test="#session.currentUser != null">
+                <div class="userTag_container">
+                    <img src="assets/user.png" alt="" class="userIcons">
+                    <span class="loginFrm_userInfo_container">
+                        <span class="first_name_tag"><s:property value="#session.currentUser.first_name" /></span>
+                        <span class="email_address_tag"><s:property value="#session.currentUser.email_address" /></span>
+                    </span>
+                </div>
+            </s:if>
+
+            <!-- Othewise currentUser is null mean user has logout -->
+            <s:else>
+                <button type="button" class="loginBtn">
+                    <a href="Login.jsp">
+                        Login
+                    </a>
+                </button>
+            </s:else>
         </div>
     </header>
     <nav>
@@ -41,6 +57,9 @@
             <li class="navigator_list">Bid Products</li>
         </ul>
     </nav>
+    <s:if test="#session.currentUser != null">
+        <s:property value="#session.currentUser.first_name" />
+    </s:if>
     <div id="dialog" title="Balances">
         <div class="wallet_info_container">
             <img src="assets/infoIcon.png" alt="infoIcon" class="infoIcon">

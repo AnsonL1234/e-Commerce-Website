@@ -28,6 +28,13 @@ public class LoginStruts implements SessionAware {
     }
 
     public String login() {
+
+        // if the user already login
+        // redirect the user back to the index.jsp page
+        if(session.get("currentUser") != null) {
+            return "success";
+        }
+
         System.out.println("DEBUG: username=" + username + ", password=" + password);
         User user = userDAO.login(username, password);
         if (user != null) {

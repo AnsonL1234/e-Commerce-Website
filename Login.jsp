@@ -25,11 +25,16 @@
         <div class="loginFrm_title_container">
             <h2>Login Form</h2>
         </div>
-        <s:form action="userLogin" cssClass="loginFrm">
-            <s:textfield name="username" label="Username" cssClass="usernameFld"/>
-            <s:textfield name="password" label="Password" cssClass="passwordFld"/>
-            <s:submit cssClass="loginBtn" value="Login"/>
-        </s:form>
+        <s:if test="#session.currentUser == null">
+            <s:form action="userLogin" cssClass="loginFrm">
+                <s:textfield name="username" label="Username" cssClass="usernameFld" />
+                <s:textfield name="password" label="Password" cssClass="passwordFld" />
+                <s:submit cssClass="loginBtn" value="Login"/>
+            </s:form>
+        </s:if>
+        <s:else>
+            <a href="index.jsp">Go to Home Page</a>
+        </s:else>
         <a href="http://">Doesn't have an account? Click to Register!</a>
     </div>
 </body>
