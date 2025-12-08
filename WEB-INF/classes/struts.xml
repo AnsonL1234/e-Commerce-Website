@@ -6,7 +6,16 @@
     <package name="default" extends="struts-default">
 
         <action name="userLogin" class="org.onlinebusiness.servlet.StructsAction.LoginStruts" method="login">
+            <result name="success" type="redirectAction">index</result>
+            <result name="fail">/Fail.jsp</result>
+        </action>
+
+        <action name="index" class="org.onlinebusiness.servlet.StructsAction.HomeStruts" method="execute">
             <result name="success">/index.jsp</result>
+        </action>
+
+        <action name="userRegister" class="org.onlinebusiness.servlet.StructsAction.RegisterStruts" method="registerUser" >
+            <result name="successfulRegister">/index.jsp</result>
             <result name="fail">/Fail.jsp</result>
         </action>
         	

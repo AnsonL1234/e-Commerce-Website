@@ -1,7 +1,7 @@
-<!-- <%@page contentType="text/html" pageEncoding="UTF-8"%> -->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-<!-- <%@taglib uri="/struts-tags" prefix="s" %> -->
+<%@taglib uri="/struts-tags" prefix="s" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,7 +44,7 @@
             <!-- Othewise currentUser is null mean user has logout -->
             <s:else>
                 <button type="button" class="loginBtn">
-                    <a href="Login.jsp">
+                    <a href="Login.jsp" class="login_Lk">
                         Login
                     </a>
                 </button>
@@ -57,9 +57,36 @@
             <li class="navigator_list">Bid Products</li>
         </ul>
     </nav>
+
+    <!-- display login message -->
     <s:if test="#session.currentUser != null">
-        <s:property value="#session.currentUser.first_name" />
+        <h1 class="welcome-msg">Welcome, you logged in as <s:property value="#session.currentUser.first_name" /></h1>
     </s:if>
+
+    <!-- Get all items from -->
+    <div class="itemLt">
+        <s:iterator value="items">
+            <div class="cart_card">
+                <div class="image_container">
+                    <img src="assets/empty.jpg" alt="" class="item_img">
+                </div>
+                <div class="bottom_content_container">
+                    <div class="content_container">
+                        <h2 class="title"><s:property value="title" /></h2>
+                        <span class="des_ctr"><s:property value="description" /></span>
+                    </div>
+                    <span class="publisher_ctr">
+                        Publisher: <a href="http://"><s:property value="Seller.first_name" /></a>
+                    </span>
+                    <div class="btnContainer">
+                        <button type="button" class="cardBtn">View</button>
+                        <button type="button" class="cardBtn">Make a Bid</button>
+                    </div>
+                </div>
+            </div>
+        </s:iterator>
+    </div>
+
     <div id="dialog" title="Balances">
         <div class="wallet_info_container">
             <img src="assets/infoIcon.png" alt="infoIcon" class="infoIcon">
@@ -68,7 +95,7 @@
         <div class="balance_container">
             <div class="symbol_panel">
                 <img src="assets/euro-currency-symbol.png" alt="eurosymbolIcon" class="eurosymbolIcon">
-                <span class="balance">0.00</span>
+                <span class="balance"><s:property value="#session.currentUser.balance" /></span>
             </div>
         </div>
         <form action="" class="topup_form">

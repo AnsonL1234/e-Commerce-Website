@@ -96,4 +96,29 @@ public class UserDAO {
         }
         return result;
     }
+
+    public User findUserByID(int id) {
+        User user = null;
+
+        try {
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            System.out.println("DEBUG1: DATABASE CONNECT!");
+
+            String findUserQuery = "SELECT * FROM ecommerce.user WHERE UserID = ?";
+            PreparedStatement ps = connection.prepareStatement(findUserQuery);
+            ps.setInt(1, id);
+            ResultSet returnResult = ps.executeQuery();
+            if (returnResult.next()) {
+                user = new User();
+                user.setUsername(returnResult.getString("username"));
+                user.setPassword(returnResult.getString("password"));
+                user.setFirst_name(returnResult.getString("first_name"));
+                user.setLast_name(returnResult.getString("last_name"));
+                user.setEmail_address(returnResult.getString("email_address"));
+            }
+        } catch (SQLException s) {
+            System.out.println("SQL Connect Unsuccessfully!");
+        }
+        return user;
+    }
 }

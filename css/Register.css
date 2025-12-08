@@ -28,15 +28,15 @@ body {
 }
 
 
-.loginFrm_container {
-    width: 18.75rem;
+.registerFrm_container {
+    width: 20.75rem;
     height: auto;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--bg-color01);
     border-radius: .5rem;
 }
-.loginFrm_title_container {
+.registerFrm_title_container {
     width: 100%;
     background-color: #005a32;
     border-top-left-radius: .4rem;
@@ -48,37 +48,41 @@ h2 {
     align-items: center;
     text-align: center;
 }
-.loginFrm {
+.registerFrm {
     width: 100%;
     height: 100%;
     padding: 1rem 0 .5rem 0;
     display: flex;
     flex-direction: column;
 }
-.loginFrm table tbody {
+.registerFrm table tbody {
     margin: 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: .7rem;
 }
-.loginFrm table tbody tr {
+.registerFrm table tbody tr {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.usernameFld, .passwordFld  {
+.field  {
     width: 10rem;
     height: 1.5rem;
     display: flex;
     justify-content: end;
 }
-.loginBtn {
+.registerBtn {
     padding: .5rem 1rem;
     border: 1px solid var(--bg-color01);
     border-radius: 3px;
     color: white;
     background-color: var(--bg-color03);
+}
+.backLk {
+    margin-top: 20px;
+    font-size: 10px;
 }
 a {
     margin: 0 20px;

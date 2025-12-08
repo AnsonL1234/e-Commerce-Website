@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class RegisterStruts implements SessionAware {
 
-    private UserDAO userDAO;
+    private UserDAO userDAO = new UserDAO();
     private User user;
     private String username;
     private String password;
@@ -22,9 +22,13 @@ public class RegisterStruts implements SessionAware {
 
     }
 
-    public RegisterStruts(UserDAO userDAO, User user) {
-        this.userDAO = userDAO;
-        this.user = user;
+    public RegisterStruts(String username, String password, String first_name, String last_name, double balance, String email_address) {
+        this.username = username;
+        this.password = password;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.balance = balance;
+        this.email_address = email_address;
     }
 
     @Override
@@ -33,7 +37,7 @@ public class RegisterStruts implements SessionAware {
     }
 
     public String registerUser() {
-        user = new User(this.username, this.password, this.first_name, this.last_name, this.balance, this.email_address);
+        user = new User(this.username, this.password, this.first_name, this.last_name, 0, this.email_address);
         return userDAO.storeUser(user);
     }
 

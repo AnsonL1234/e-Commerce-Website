@@ -3,45 +3,23 @@ package org.onlinebusiness.servlet.StructsAction;
 import org.apache.struts2.interceptor.SessionAware;
 import org.onlinebusiness.servlet.entity.Item;
 import org.onlinebusiness.servlet.entity.User;
+import org.onlinebusiness.servlet.repository.ItemDAO;
+import org.onlinebusiness.servlet.repository.UserDAO;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class HomeStruts implements SessionAware {
+public class HomeStruts {
 
-    private User user;
     private List<Item> items;
-    private Map<String, Object> session;
+    private final ItemDAO itemDAO = new ItemDAO();
 
-    public HomeStruts() {
-
+    public String execute() {
+        items = itemDAO.getAllItems();
+        return "success";
     }
 
-    @Override
-    public void setSession(Map map) {
-        this.session = map;
-    }
-
-    public String retrieveData() {
-        user = (User) session.get("currenUser");
-
-        // if username doesn't exit in the map which mean the user haven't log in
-        // then redirect user to the login
-        if (user == null)
-            return "Login";
-
-
-
-        return "Homepage";
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public List<Item> getItems() {
         return items;

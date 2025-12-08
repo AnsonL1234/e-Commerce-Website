@@ -18,9 +18,6 @@
     <title>ArtCraft - Login Page</title>
 </head>
 <body id="root">
-    <div class="logo_container">
-        
-    </div>
     <div class="loginFrm_container">
         <div class="loginFrm_title_container">
             <h2>Login Form</h2>
@@ -35,7 +32,8 @@
         <s:else>
             <a href="index.jsp">Go to Home Page</a>
         </s:else>
-        <a href="http://">Doesn't have an account? Click to Register!</a>
+        <a href="Register.jsp" class="registerLk">Doesn't have an account? Click to Register!</a>
+        <a href="index.jsp" class="backLk">Click this to go back</a>
     </div>
 </body>
 </html>

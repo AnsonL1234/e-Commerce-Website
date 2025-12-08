@@ -1,64 +1,53 @@
 package org.onlinebusiness.servlet.entity;
 
 public class Item {
-    private int ItemID;
-    private User BuyerID;
-    private User SellerID;
+    private User Buyer;
+    private User Seller;
     private String item_image;
     private String title;
     private String description;
     private int quantity;
     private double price;
-    private String categories;
+    private String categorise;
 
     public Item() {
 
     }
 
     public Item(
-            int itemID,
-            User buyerID,
-            User sellerID,
+            User buyer,
+            User seller,
             String item_image,
             String title,
             String description,
             int quantity,
             double price,
-            String categories
+            String categorise
     ) {
-        ItemID = itemID;
-        BuyerID = buyerID;
-        SellerID = sellerID;
+        Buyer = buyer;
+        Seller = seller;
         this.item_image = item_image;
         this.title = title;
         this.description = description;
         this.quantity = quantity;
         this.price = price;
-        this.categories = categories;
+        this.categorise = categorise;
     }
 
-    public int getItemID() {
-        return ItemID;
+    public User getBuyer() {
+        return Buyer;
     }
 
-    public void setItemID(int itemID) {
-        ItemID = itemID;
+    public void setBuyer(User buyer) {
+        Buyer = buyer;
     }
 
-    public User getBuyerID() {
-        return BuyerID;
+    public User getSeller() {
+        return Seller;
     }
 
-    public void setBuyerID(User buyerID) {
-        BuyerID = buyerID;
-    }
-
-    public User getSellerID() {
-        return SellerID;
-    }
-
-    public void setSellerID(User sellerID) {
-        SellerID = sellerID;
+    public void setSeller(User seller) {
+        Seller = seller;
     }
 
     public String getItem_image() {
@@ -101,11 +90,11 @@ public class Item {
         this.price = price;
     }
 
-    public String getCategories() {
-        return categories;
+    public String getCategorise() {
+        return categorise;
     }
 
-    public void setCategories(String categories) {
-        this.categories = categories;
+    public void setCategorise(String categorise) {
+        this.categorise = categorise;
     }
 }
