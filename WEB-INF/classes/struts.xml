@@ -10,13 +10,17 @@
             <result name="fail">/Fail.jsp</result>
         </action>
 
-        <action name="index" class="org.onlinebusiness.servlet.StructsAction.HomeStruts" method="execute">
-            <result name="success">/index.jsp</result>
+        <action name="userRegister" class="org.onlinebusiness.servlet.StructsAction.RegisterStruts" method="registerUser" >
+            <result name="successfulRegister" type="redirectAction">index</result>
+            <result name="fail">/Fail.jsp</result>
         </action>
 
-        <action name="userRegister" class="org.onlinebusiness.servlet.StructsAction.RegisterStruts" method="registerUser" >
-            <result name="successfulRegister">/index.jsp</result>
-            <result name="fail">/Fail.jsp</result>
+        <action name="index" class="org.onlinebusiness.servlet.StructsAction.HomeStruts" method="allItems">
+            <result name="allItems">/index.jsp</result>
+        </action>
+
+        <action name="view_item" class="org.onlinebusiness.servlet.StructsAction.HomeStruts" method="viewItem">
+            <result name="viewItem">/Item.jsp</result>
         </action>
         	
     </package>

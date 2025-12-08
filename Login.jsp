@@ -30,10 +30,10 @@
             </s:form>
         </s:if>
         <s:else>
-            <a href="index.jsp">Go to Home Page</a>
+            <a href="http://localhost:8080/online-business/index.action">Go to Home Page</a>
         </s:else>
         <a href="Register.jsp" class="registerLk">Doesn't have an account? Click to Register!</a>
-        <a href="index.jsp" class="backLk">Click this to go back</a>
+        <a href="http://localhost:8080/online-business/index.action" class="backLk">Click this to go back</a>
     </div>
 </body>
 </html>

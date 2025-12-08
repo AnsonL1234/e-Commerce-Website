@@ -110,6 +110,7 @@ public class UserDAO {
             ResultSet returnResult = ps.executeQuery();
             if (returnResult.next()) {
                 user = new User();
+                user.setUserID(returnResult.getInt("UserID"));
                 user.setUsername(returnResult.getString("username"));
                 user.setPassword(returnResult.getString("password"));
                 user.setFirst_name(returnResult.getString("first_name"));

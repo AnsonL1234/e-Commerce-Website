@@ -1,6 +1,7 @@
 package org.onlinebusiness.servlet.entity;
 
 public class User {
+    private int UserID;
     private String username;
     private String password;
     private String first_name;
@@ -26,6 +27,32 @@ public class User {
         this.last_name = last_name;
         this.balance = balance;
         this.email_address = email_address;
+    }
+
+    public User(
+            int UserID,
+            String username,
+            String password,
+            String first_name,
+            String last_name,
+            double balance,
+            String email_address
+    ) {
+        this.UserID = UserID;
+        this.username = username;
+        this.password = password;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.balance = balance;
+        this.email_address = email_address;
+    }
+
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int userID) {
+        UserID = userID;
     }
 
     public String getUsername() {

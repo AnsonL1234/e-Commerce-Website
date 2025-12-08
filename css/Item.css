@@ -1,0 +1,69 @@
+:root {
+    --text-font: "Segoe UI", Arial, sans-serif;
+
+    /* background color theme */
+    --bg-color01: #005a32;
+    --bg-color02: #238b45;
+    --bg-color03: #41ab5d;
+    --bg-color04: #74c476;
+    --bg-color05: #a1d99b;
+    --bg-color06: #c7e9c0;
+    --bg-color07: #edf8e9;
+
+    /* Element Color theme */
+    --danger-clr: hsl(9, 26%, 64%);
+    --warning-clr: hsl(52, 19%, 57%);
+    --success-clr: hsl(147, 17%, 59%);
+    --info-clr: hsl(217, 28%, 65%);
+}
+
+body {
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    font-family: var(--text-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item_ctr {
+    padding: 1rem;
+    width: 500px;
+    height: 700px;
+    color: white;
+    background-color: var(--bg-color01);
+    border-radius: 8px;
+}
+.panel_ctr {
+    display: flex;
+}
+.empty_img {
+    height: 250px;
+    border-radius: 8px;
+}
+.item_info_ctr {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.titleTag {
+    margin: 0;
+}
+.publisherTag {
+    margin: .3rem;
+}
+.priceTag {
+    margin: 0;
+    font-size: 1.8rem;
+}
+.priceTag, .bidBtn {
+    margin-top: .3rem;
+}
+.bidBtn {
+    height: 1.9rem;
+    border: none;
+    border-radius: 1000px;
+    background-color: var(--bg-color04);
+}

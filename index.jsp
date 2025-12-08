@@ -53,8 +53,8 @@
     </header>
     <nav>
         <ul id="nav_top" class="nav_top">
-            <li class="navigator_list">Products</li>
-            <li class="navigator_list">Bid Products</li>
+            <li class="navigator_list">All Products</li>
+            <li class="navigator_list">All User</li>
         </ul>
     </nav>
 
@@ -66,24 +66,28 @@
     <!-- Get all items from -->
     <div class="itemLt">
         <s:iterator value="items">
-            <div class="cart_card">
-                <div class="image_container">
-                    <img src="assets/empty.jpg" alt="" class="item_img">
-                </div>
-                <div class="bottom_content_container">
-                    <div class="content_container">
-                        <h2 class="title"><s:property value="title" /></h2>
-                        <span class="des_ctr"><s:property value="description" /></span>
+            <s:form action="view_item">
+                <!-- <s:hidden name="SellerID" value="%{Seller.UserID}" /> -->
+                <div class="cart_card">
+                    <div class="image_container">
+                        <img src="assets/empty.jpg" alt="" class="item_img">
                     </div>
-                    <span class="publisher_ctr">
-                        Publisher: <a href="http://"><s:property value="Seller.first_name" /></a>
-                    </span>
-                    <div class="btnContainer">
-                        <button type="button" class="cardBtn">View</button>
-                        <button type="button" class="cardBtn">Make a Bid</button>
+                    <div class="bottom_content_container">
+                        <div class="content_container">
+                            <h2 class="title"><s:property value="title" /></h2>
+                            <span class="des_ctr"><s:property value="description" /></span>
+                        </div>
+                        <span class="publisher_ctr">
+                            Publisher: <s:property value="Seller.first_name" />
+                        </span>
+                        <div class="btnContainer">
+                            <s:hidden name="ItemID" value="%{ItemID}" />
+                            <s:property value="ItemID" />
+                            <button type="submit" class="cardBtn">View</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </s:form>
         </s:iterator>
     </div>
 

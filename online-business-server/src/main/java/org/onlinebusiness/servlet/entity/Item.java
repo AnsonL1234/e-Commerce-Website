@@ -1,6 +1,7 @@
 package org.onlinebusiness.servlet.entity;
 
 public class Item {
+    private int ItemID;
     private User Buyer;
     private User Seller;
     private String item_image;
@@ -32,6 +33,36 @@ public class Item {
         this.quantity = quantity;
         this.price = price;
         this.categorise = categorise;
+    }
+
+    public Item(
+            int ItemID,
+            User buyer,
+            User seller,
+            String item_image,
+            String title,
+            String description,
+            int quantity,
+            double price,
+            String categorise
+    ) {
+        this.ItemID = ItemID;
+        this.Buyer = buyer;
+        this.Seller = seller;
+        this.item_image = item_image;
+        this.title = title;
+        this.description = description;
+        this.quantity = quantity;
+        this.price = price;
+        this.categorise = categorise;
+    }
+
+    public int getItemID() {
+        return ItemID;
+    }
+
+    public void setItemID(int itemID) {
+        ItemID = itemID;
     }
 
     public User getBuyer() {

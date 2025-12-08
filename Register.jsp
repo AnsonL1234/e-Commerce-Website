@@ -15,7 +15,7 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 
     <link rel="stylesheet" href="css/Register.css">
-    <title>Document</title>
+    <title>ArtCraft - Register</title>
 </head>
 <body>
     <div class="registerFrm_container">
@@ -30,7 +30,7 @@
             <s:textfield name="email_address" label="Email Address" cssClass="field" />
             <s:submit cssClass="registerBtn" value="Register"/>
         </s:form>
-        <a href="index.jsp" class="backLk">Click this to go back</a>
+        <a href="http://localhost:8080/online-business/index.action" class="backLk">Click this to go back</a>
     </div>
 </body>
 </html>

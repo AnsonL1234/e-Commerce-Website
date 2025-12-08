@@ -31,6 +31,7 @@ public class ItemDAO {
                 // transfer data into Item object and add to items list
                 Item item = new Item();
                 item.setSeller(user);
+                item.setItemID(resultSet.getInt("ItemID"));
                 item.setItem_image(resultSet.getString("item_images"));
                 item.setTitle(resultSet.getString("title"));
                 item.setDescription(resultSet.getString("description"));
@@ -43,5 +44,35 @@ public class ItemDAO {
             throw new ExceptionInInitializerError(s);
         }
         return items;
+    }
+
+    public Item getItemById(int id) {
+        Item item = null;
+        try {
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            System.out.println("DEBUG1: DATABASE CONNECT!");
+
+            PreparedStatement selectStatement = connection.prepareStatement("SELECT * FROM ecommerce.item WHERE ItemID = ?");
+            selectStatement.setInt(1, id);
+            ResultSet resultSet = selectStatement.executeQuery();
+            if (resultSet.next()) {
+                UserDAO userDAO = new UserDAO();
+                User user = userDAO.findUserByID(resultSet.getInt("SellerID"));
+
+                item = new Item();
+                item.setSeller(user);
+                item.setItemID(resultSet.getInt("ItemID"));
+                item.setItem_image(resultSet.getString("item_images"));
+                item.setTitle(resultSet.getString("title"));
+                item.setDescription(resultSet.getString("description"));
+                item.setQuantity(resultSet.getInt("quantity"));
+                item.setPrice(resultSet.getDouble("price"));
+                item.setCategorise(resultSet.getString("categorise"));
+            }
+        } catch (SQLException s) {
+            System.out.println("DEBUG1: getItemByID DATABASE CONNECTION FAILED!");
+            throw new ExceptionInInitializerError(s);
+        }
+        return item;
     }
 }
