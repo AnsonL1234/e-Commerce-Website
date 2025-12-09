@@ -27,26 +27,53 @@
                         <span class="descTag"><s:property value="description" /></span>
                         <span class="publisherTag">Seller: <s:property value="Seller.first_name" /></span>
                         <h5 class="priceTag">€ <s:property value="price" /></h5>
-                        <button type="submit" class="bidBtn">Bid This Item</button>
+                        <s:if test="#session.currentUser != null">
+                            <s:hidden name="BidderID" value="%{#session.currentUser.UserID}"/>
+                            <s:hidden name="ItemID" value="%{ItemID}"/>
+                            <s:hidden name="bidAmount" value="%{price}"/>
+                            <button type="submit" class="bidBtn">Bid This Item</button>
+                        </s:if>
+                        <s:else>
+                            <button type="button" id="bidBtn" class="bidBtn">Bid This Item</button>
+                        </s:else>
+
+                        <script>
+                            $(document).ready(function() {
+                                $("#bidBtn").click(function() {
+                                    alert("You need to login before bidding!");
+                                })
+                            })
+                        </script>
                     </div>
                 </div>
             </s:form>
+        </s:iterator>
+        <s:iterator value="bids">
             <table>
                 <thead>
                     <tr>
                         <th>Bidder</th>
                         <th>Bid Item</th>
                         <th>Price</th>
+                        <th>Bid Amount</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src="assets/user.png" class="userIcon">
-                            <span></span>
-                        </td>
-                    </tr>
-                </tbody>
+                <!-- <s:if test="BidID != 0"> -->
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="assets/user.png" class="userIcon">
+                                <div class="userTag_ctr">
+                                    <span class="name"><s:property value="BidderID.first_name" /><s:property value="BidderID.last_name" /></span>
+                                    <span class="username">@<s:property value="BidderID.username" /></span>
+                                </div>
+                            </td>
+                            <td><s:property value="ItemID.title" /></td>
+                            <td><s:property value="ItemID.price" /></td>
+                            <td><s:property value="BidAmount" /></td>
+                        </tr>
+                    </tbody>
+                <!-- </s:if> -->
             </table>
         </s:iterator>
     </div>

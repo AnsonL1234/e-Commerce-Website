@@ -22,6 +22,15 @@
         <action name="view_item" class="org.onlinebusiness.servlet.StructsAction.HomeStruts" method="viewItem">
             <result name="viewItem">/Item.jsp</result>
         </action>
+
+        <action name="allBid" class="org.onlinebusiness.servlet.StructsAction.BidStruts" method="getAllBids">
+            <result name="retrieveBids" type="redirectAction">view_item</result>
+        </action>
+
+        <action name="bidItem" class="org.onlinebusiness.servlet.StructsAction.BidStruts" method="executeBid">
+            <result name="success" type="redirectAction">index</result>
+            <result name="fail">/Fail.jsp</result>
+        </action>
         	
     </package>
 </struts>
