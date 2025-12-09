@@ -1,0 +1,55 @@
+:root {
+    --text-font: "Segoe UI", Arial, sans-serif;
+
+    /* background color theme */
+    --bg-color01: #005a32;
+    --bg-color02: #238b45;
+    --bg-color03: #41ab5d;
+    --bg-color04: #74c476;
+    --bg-color05: #a1d99b;
+    --bg-color06: #c7e9c0;
+    --bg-color07: #edf8e9;
+
+    /* Element Color theme */
+    --danger-clr: hsl(9, 26%, 64%);
+    --warning-clr: hsl(52, 19%, 57%);
+    --success-clr: hsl(147, 17%, 59%);
+    --info-clr: hsl(217, 28%, 65%);
+}
+
+.profile_body {
+    width: 100%;
+    height: 100vh;
+}
+
+.profile_ctr {
+    margin: auto;
+    margin-top: 6rem;
+    padding: 1rem 0;
+    width: 300px;
+    font-family: var(--text-font);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color06);
+    border: 1px solid var(--bg-color01);
+    border-radius: 8px;
+}
+.panel {
+    padding: 4px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.left_pnl {
+    font-weight: 600;
+    margin-left: .8rem;
+}
+.right_pnl {
+    margin-right: .8rem;
+}
+h3 {
+    margin: 10px;
+    
+}

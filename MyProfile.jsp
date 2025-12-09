@@ -6,8 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
     <!-- jQuery script and css-->
     <!-- Source: https://www.geeksforgeeks.org/jquery/how-to-generate-a-simple-popup-using-jquery/ -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -15,9 +13,10 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 
     <link rel="stylesheet" href="css/Homepage.css">
-    <title>ArtCraft - Homepage</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <title>Document</title>
 </head>
-<body id="root">
+<body>
     <header>
         <img src="assets/ArtCRAFT.png" alt="artcraftlogo" class="artcraftlogo">
         <div class="middle_header_container">
@@ -58,70 +57,26 @@
         </ul>
     </nav>
 
-    <!-- display login message -->
-    <s:if test="#session.currentUser != null">
-        <h1 class="welcome-msg">Welcome, you logged in as <s:property value="#session.currentUser.first_name" /></h1>
-    </s:if>
-
-    <!-- Get all items from -->
-    <div class="itemLt">
-        <s:iterator value="items">
-            <s:form action="view_item">
-                <!-- <s:hidden name="SellerID" value="%{Seller.UserID}" /> -->
-                <div class="cart_card">
-                    <div class="image_container">
-                        <img src="assets/empty.jpg" alt="" class="item_img">
-                    </div>
-                    <div class="bottom_content_container">
-                        <div class="content_container">
-                            <h2 class="title"><s:property value="title" /></h2>
-                            <span class="des_ctr"><s:property value="description" /></span>
-                        </div>
-                        <span class="publisher_ctr">
-                            Publisher: <s:property value="Seller.first_name" />
-                        </span>
-                        <div class="btnContainer">
-                            <s:hidden name="ItemID" value="%{ItemID}" />
-                            <s:property value="ItemID" />
-                            <button type="submit" class="cardBtn">View</button>
-                        </div>
-                    </div>
-                </div>
-            </s:form>
-        </s:iterator>
-    </div>
-
-    <div id="dialog" title="Balances">
-        <div class="wallet_info_container">
-            <img src="assets/infoIcon.png" alt="infoIcon" class="infoIcon">
-            <span class="euro_title">EUR</span>
-        </div>
-        <div class="balance_container">
-            <div class="symbol_panel">
-                <img src="assets/euro-currency-symbol.png" alt="eurosymbolIcon" class="eurosymbolIcon">
-                <span class="balance"><s:property value="#session.currentUser.balance" /></span>
+    <div class="profile_body">
+        <div class="profile_ctr">
+            <h3>Profile</h3>
+            <div class="panel">
+                <span class="left_pnl">Username</span>
+                <span class="right_pnl"><s:property value="#session.currentUser.username" /></span>
+            </div>
+            <div class="panel">
+                <span class="left_pnl">First Name</span>
+                <span class="right_pnl"><s:property value="#session.currentUser.first_name" /></span>
+            </div>
+            <div class="panel">
+                <span class="left_pnl">Last Name</span>
+                <span class="right_pnl"><s:property value="#session.currentUser.last_name" /></span>
+            </div>
+            <div class="panel">
+                <span class="left_pnl">Email Address</span>
+                <span class="right_pnl"><s:property value="#session.currentUser.email_address" /></span>
             </div>
         </div>
-        <form action="" class="topup_form">
-            <input type="text" name="addBalance" id="addBalance" class="addBalanceField">
-            <button type="submit" class="topupBtn">
-                    Top Up
-            </button>
-        </form>
     </div>
-
-    <script>
-        $(document).ready(function () {
-            // Initialize the dialog but keep it closed
-            $("#dialog").dialog({
-                autoOpen: false
-            });
-
-            // Open the dialog on button click
-            $("#openDialog").click(function () {
-                $("#dialog").dialog("open");
-            });
-        });
-    </script>
 </body>
 </html>

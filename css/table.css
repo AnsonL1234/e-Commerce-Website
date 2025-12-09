@@ -1,0 +1,58 @@
+:root {
+    --text-font: "Segoe UI", Arial, sans-serif;
+
+    /* background color theme */
+    --bg-color01: #005a32;
+    --bg-color02: #238b45;
+    --bg-color03: #41ab5d;
+    --bg-color04: #74c476;
+    --bg-color05: #a1d99b;
+    --bg-color06: #c7e9c0;
+    --bg-color07: #edf8e9;
+
+    /* Element Color theme */
+    --danger-clr: hsl(9, 26%, 64%);
+    --warning-clr: hsl(52, 19%, 57%);
+    --success-clr: hsl(147, 17%, 59%);
+    --info-clr: hsl(217, 28%, 65%);
+}
+
+table {
+    margin: 2rem 0;
+    width: 700px;
+    border-collapse: collapse;
+}
+table thead tr th {
+    padding: .5rem;
+    color: white;
+    background-color: var(--bg-color01);
+}
+table thead tr {
+    border: none;
+}
+th, td {
+    border: none;
+  padding: 10px;
+  text-align: left;
+}
+.userIcon {
+    width: 2.7rem;
+    height: 2.7rem;
+}
+.userTag_ctr {
+    display: flex;
+    
+}
+.info_ctr {
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.name {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+.username {
+    font: .6rem;
+}
