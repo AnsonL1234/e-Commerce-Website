@@ -23,8 +23,8 @@
             <result name="viewItem">/Item.jsp</result>
         </action>
 
-        <action name="allBid" class="org.onlinebusiness.servlet.StructsAction.BidStruts" method="getAllBids">
-            <result name="retrieveBids" type="redirectAction">view_item</result>
+        <action name="allBids" class="org.onlinebusiness.servlet.StructsAction.BidStruts" method="getAllBids">
+            <result name="retrieveBids" >/ViewAllBit.jsp</result>
         </action>
 
         <action name="bidItem" class="org.onlinebusiness.servlet.StructsAction.BidStruts" method="executeBid">

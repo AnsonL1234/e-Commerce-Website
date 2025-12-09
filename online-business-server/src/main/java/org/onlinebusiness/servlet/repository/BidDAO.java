@@ -1,6 +1,7 @@
 package org.onlinebusiness.servlet.repository;
 
 import org.onlinebusiness.servlet.entity.Bid;
+import org.onlinebusiness.servlet.entity.Item;
 import org.onlinebusiness.servlet.entity.User;
 
 import java.sql.*;
@@ -25,9 +26,19 @@ public class BidDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 Bid bid = new Bid();
+
+                // passing the user data object
+                UserDAO userDAO = new UserDAO();
+                User bidder = userDAO.findUserByID(rs.getInt("BidderID"));
+
+                // passing the item data object
+                ItemDAO itemDAO = new ItemDAO();
+                Item item = itemDAO.getItemById(rs.getInt("ItemID"));
+
+                // passing the bidding data
                 bid.setBidID(rs.getInt("BidID"));
-                bid.getBidderID().setUserID(rs.getInt("BidderID"));
-                bid.getItemID().setItemID(rs.getInt("ItemID"));
+                bid.setBidderID(bidder);
+                bid.setItemID(item);
                 bid.setBidAmount(rs.getDouble("BidAmount"));
                 bids.add(bid);
             }

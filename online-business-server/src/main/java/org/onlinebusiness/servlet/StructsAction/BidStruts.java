@@ -38,6 +38,11 @@ public class BidStruts {
     }
 
     public String getAllBids() {
+
+        if(bid.getBidderID() == null && bid.getItemID() == null) {
+            bid.setItemID(new Item());
+        }
+
         System.out.println("DEBUG getAllBids(): " + ItemID);
         this.bids = bidDAO.getAllBidByItemID(ItemID);
         return "retrieveBids";
