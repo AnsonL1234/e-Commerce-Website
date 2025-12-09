@@ -32,9 +32,21 @@
             <result name="fail">/Fail.jsp</result>
         </action>
 
-
         <action name="viewProfile" class="org.onlinebusiness.servlet.StructsAction.ProfileStruts" method="viewOtherProfile">
             <result name="success" >/OtherProfile.jsp</result>
+        </action>
+
+        <action name="getAllUsers" class="org.onlinebusiness.servlet.StructsAction.ProfileStruts" method="viewAllUsers">
+            <result name="retrieveAllUsers">/AllUser.jsp</result>
+        </action>
+
+        <action name="uploadItem" class="org.onlinebusiness.servlet.StructsAction.ItemStruts" method="addNewItem">
+            <result name="success">/AddItem.jsp</result>
+            <result name="fail">/Fail.jsp</result>
+        </action>
+
+        <action name="logout" class="org.onlinebusiness.servlet.StructsAction.LogoutStruts" method="sessionLogout">
+            <result name="success" type="redirectAction">index</result>
         </action>
         	
     </package>

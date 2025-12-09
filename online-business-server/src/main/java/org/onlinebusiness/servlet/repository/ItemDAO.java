@@ -75,4 +75,32 @@ public class ItemDAO {
         }
         return item;
     }
+
+    public String addNewItem(Item item) {
+        String result = "";
+        try {
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            System.out.println("DEBUG1: addNewItem DATABASE CONNECT!");
+            String insertQuery = "INSERT INTO ecommerce.item(SellerID, item_images, title, description, quantity, price, categorise) VALUES(?,?,?,?,?,?,?)";
+            PreparedStatement insertStatement = connection.prepareStatement(insertQuery);
+            insertStatement.setInt(1, item.getSeller().getUserID());
+            insertStatement.setString(2, item.getItem_image());
+            insertStatement.setString(3, item.getTitle());
+            insertStatement.setString(4, item.getDescription());
+            insertStatement.setInt(5, item.getQuantity());
+            insertStatement.setDouble(6, item.getPrice());
+            insertStatement.setString(7, item.getCategorise());
+            int rows = insertStatement.executeUpdate();
+            if (rows > 0) {
+                result = "success";
+            } else {
+                result = "fail";
+            }
+
+        } catch (SQLException s) {
+            System.out.println("DEBUG1: addNewItem DATABASE CONNECTION FAILED!");
+            throw new ExceptionInInitializerError(s);
+        }
+        return result;
+    }
 }

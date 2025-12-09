@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    Fail to login...
+    <h1>Opps....</h1>
+    <p>Something is wrong, please try again later!</p>
 </body>
 </html>

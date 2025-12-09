@@ -3,6 +3,8 @@ package org.onlinebusiness.servlet.repository;
 import org.onlinebusiness.servlet.entity.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
@@ -122,5 +124,31 @@ public class UserDAO {
             System.out.println("SQL Connect Unsuccessfully!");
         }
         return user;
+    }
+
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+
+        try {
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            System.out.println("DEBUG getAllUsers(): DATABASE CONNECT!");
+
+            String findAllUserQuery = "SELECT * FROM ecommerce.user";
+            PreparedStatement ps = connection.prepareStatement(findAllUserQuery);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setUserID(rs.getInt("UserID"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setFirst_name(rs.getString("first_name"));
+                user.setLast_name(rs.getString("last_name"));
+                user.setEmail_address(rs.getString("email_address"));
+                users.add(user);
+            }
+        } catch (SQLException s) {
+            System.out.println("DEBUG getAllUsers(): SQL Connect Unsuccessfully!");
+        }
+        return users;
     }
 }

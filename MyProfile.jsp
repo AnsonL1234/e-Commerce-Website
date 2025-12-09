@@ -24,7 +24,7 @@
             <img src="assets/search.png" alt="searchicons" class="searchicons">
         </div>
         <div class="right_header_container">
-            <img src="assets/more.png" alt="plusIcons" class="plusIcons">
+            <a href="AddItem.jsp"><img src="assets/more.png" alt="plusIcons" class="plusIcons"></a>
             <img src="assets/wallet.png" alt="icons" class="walleticon" id="openDialog">
             <img src="assets/grocery-store.png" alt="icons" class="groceryicon">
             
@@ -52,31 +52,68 @@
     </header>
     <nav>
         <ul id="nav_top" class="nav_top">
-            <a href="MyProfile.jsp"><li class="navigator_list">View My Profile</li></a>
-            <a href="http://"><li class="navigator_list">View All User</li></a>
+            <li class="navigator_list">
+                <a href="MyProfile.jsp">View My Profile</a>
+            </li>
+
+            <li class="navigator_list">
+                <s:form action="getAllUsers">
+                    <s:submit value="View All Users" cssClass="nav_button"/>
+                </s:form>
+            </li>
         </ul>
     </nav>
 
+    <!-- If currentUser is not null mean user has login in -->
+            <!-- sources: https://www.tutorialspoint.com/struts_2/struts_if_else_tags.htm -->
+            <s:if test="#session.currentUser != null">
+                <div class="userTag_container">
+                    <img src="assets/user.png" alt="" class="userIcons">
+                    <span class="loginFrm_userInfo_container">
+                        <span class="first_name_tag"><s:property value="#session.currentUser.first_name" /></span>
+                        <span class="email_address_tag"><s:property value="#session.currentUser.email_address" /></span>
+                    </span>
+                </div>
+                <s:form action="logout">
+                    <s:submit value="Logout" cssClass="logoutBtn"/>
+                </s:form>
+            </s:if>
+
+            <!-- Othewise currentUser is null mean user has logout -->
+            <s:else>
+                <button type="button" class="loginBtn">
+                    <a href="Login.jsp" class="login_Lk">
+                        Login
+                    </a>
+                </button>
+            </s:else>
+
     <div class="profile_body">
-        <div class="profile_ctr">
-            <h3>Profile</h3>
-            <div class="panel">
-                <span class="left_pnl">Username</span>
-                <span class="right_pnl"><s:property value="#session.currentUser.username" /></span>
+        <s:if test="#session.currentUser != null">
+            <div class="profile_ctr">
+                <h3>Profile</h3>
+                <div class="panel">
+                    <span class="left_pnl">Username</span>
+                    <span class="right_pnl"><s:property value="#session.currentUser.username" /></span>
+                </div>
+                <div class="panel">
+                    <span class="left_pnl">First Name</span>
+                        <span class="right_pnl"><s:property value="#session.currentUser.first_name" /></span>
+                    </div>
+                    <div class="panel">
+                        <span class="left_pnl">Last Name</span>
+                        <span class="right_pnl"><s:property value="#session.currentUser.last_name" /></span>
+                    </div>
+                    <div class="panel">
+                        <span class="left_pnl">Email Address</span>
+                        <span class="right_pnl"><s:property value="#session.currentUser.email_address" /></span>
+                    </div>
+                </div>
             </div>
-            <div class="panel">
-                <span class="left_pnl">First Name</span>
-                <span class="right_pnl"><s:property value="#session.currentUser.first_name" /></span>
-            </div>
-            <div class="panel">
-                <span class="left_pnl">Last Name</span>
-                <span class="right_pnl"><s:property value="#session.currentUser.last_name" /></span>
-            </div>
-            <div class="panel">
-                <span class="left_pnl">Email Address</span>
-                <span class="right_pnl"><s:property value="#session.currentUser.email_address" /></span>
-            </div>
-        </div>
+        </s:if>
+        <s:else>
+            <h1>User Not Login Yet.....</h1>
+        </s:else>
     </div>
 </body>
 </html>

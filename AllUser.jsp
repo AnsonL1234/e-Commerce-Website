@@ -6,8 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
     <!-- jQuery script and css-->
     <!-- Source: https://www.geeksforgeeks.org/jquery/how-to-generate-a-simple-popup-using-jquery/ -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -15,9 +13,10 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 
     <link rel="stylesheet" href="css/Homepage.css">
-    <title>ArtCraft - Homepage</title>
+    <link rel="stylesheet" href="css/table.css">
+    <title>Document</title>
 </head>
-<body id="root">
+<body>
     <header>
         <img src="assets/ArtCRAFT.png" alt="artcraftlogo" class="artcraftlogo">
         <div class="middle_header_container">
@@ -51,16 +50,15 @@
             </s:else>
         </div>
     </header>
-
     <nav>
         <ul id="nav_top" class="nav_top">
             <li class="navigator_list">
-                <a href="MyProfile.jsp" class="link">View My Profile</a>
+                <a href="MyProfile.jsp">View My Profile</a>
             </li>
 
             <li class="navigator_list">
                 <s:form action="getAllUsers">
-                    <s:submit value="View All Users" cssClass="navBtn"/>
+                    <s:submit value="View All Users" cssClass="nav_button"/>
                 </s:form>
             </li>
         </ul>
@@ -90,21 +88,30 @@
                 </button>
             </s:else>
 
-    <s:if test="#session.currentUser != null">
-        <h1>Add new Item Here</h1>
-        <s:form action="uploadItem">
-            <s:hidden name="SellerID" value="%{#session.currentUser.UserID}" />
-            <s:hidden name="item_images" value="%{assets/empty.jsp}" />
-            <s:textfield label="Title" name="title" />
-            <s:textfield label="Description" name="description" />
-            <s:textfield label="Quantity" name="quantity" />
-            <s:textfield label="Price" name="price" />
-            <s:textfield label="Categorise" name="category" />
-            <s:submit />
-        </s:form>
-    </s:if>
-    <s:else>
-        <h1>User Not Login Yet.....</h1>
-    </s:else>
+    <div class="profile_body">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>email</th>
+                </tr>
+            </thead>
+                <!-- <s:if test="BidID != 0"> -->
+            <tbody>
+                <s:iterator value="users">
+                    <tr>
+                        <td><s:property value="username" /></td>
+                        <td><s:property value="first_name" /></td>
+                        <td><s:property value="last_name" /></td>
+                        <td><s:property value="email_address" /></td>
+                    </tr>
+                </s:iterator>
+            </tbody>
+                <!-- </s:if> -->
+        </table>
+    </div>
 </body>
 </html>

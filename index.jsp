@@ -25,7 +25,7 @@
             <img src="assets/search.png" alt="searchicons" class="searchicons">
         </div>
         <div class="right_header_container">
-            <img src="assets/more.png" alt="plusIcons" class="plusIcons">
+            <a href="AddItem.jsp"><img src="assets/more.png" alt="plusIcons" class="plusIcons"></a>
             <img src="assets/wallet.png" alt="icons" class="walleticon" id="openDialog">
             <img src="assets/grocery-store.png" alt="icons" class="groceryicon">
             
@@ -39,6 +39,9 @@
                         <span class="email_address_tag"><s:property value="#session.currentUser.email_address" /></span>
                     </span>
                 </div>
+                <s:form action="logout">
+                    <s:submit value="Logout" cssClass="logoutBtn"/>
+                </s:form>
             </s:if>
 
             <!-- Othewise currentUser is null mean user has logout -->
@@ -51,10 +54,18 @@
             </s:else>
         </div>
     </header>
+
     <nav>
         <ul id="nav_top" class="nav_top">
-            <a href="MyProfile.jsp"><li class="navigator_list">View My Profile</li></a>
-            <a href="http://"><li class="navigator_list">View All User</li></a>
+            <li class="navigator_list">
+                <a href="MyProfile.jsp" class="link">View My Profile</a>
+            </li>
+
+            <li class="navigator_list">
+                <s:form action="getAllUsers">
+                    <s:submit value="View All Users" cssClass="navBtn"/>
+                </s:form>
+            </li>
         </ul>
     </nav>
 
