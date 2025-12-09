@@ -55,6 +55,10 @@
                 <s:hidden name="ItemID" value="%{ItemID}"/>
                 <button type="submit" class="viewBtn">View all Bid</button>
             </s:form>
+            <s:form action="viewProfile">
+                <s:hidden name="UserID" value="%{Seller.UserID}"/>
+                <button type="submit" class="viewBtn">View Seller Profile</button>
+            </s:form>
         </s:iterator>
     </div>
 </body>

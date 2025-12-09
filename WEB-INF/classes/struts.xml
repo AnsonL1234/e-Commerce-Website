@@ -10,11 +10,11 @@
             <result name="fail">/Fail.jsp</result>
         </action>
 
-        <action name="userRegister" class="org.onlinebusiness.servlet.StructsAction.RegisterStruts" method="registerUser" >
+        <action name="userRegister" class="org.onlinebusiness.servlet.StructsAction.RegisterStruts" method="registerUser">
             <result name="successfulRegister" type="redirectAction">index</result>
             <result name="fail">/Fail.jsp</result>
         </action>
-
+        
         <action name="index" class="org.onlinebusiness.servlet.StructsAction.HomeStruts" method="allItems">
             <result name="allItems">/index.jsp</result>
         </action>
@@ -24,12 +24,17 @@
         </action>
 
         <action name="allBids" class="org.onlinebusiness.servlet.StructsAction.BidStruts" method="getAllBids">
-            <result name="retrieveBids" >/ViewAllBit.jsp</result>
+            <result name="retrieveBids">/ViewAllBit.jsp</result>
         </action>
 
         <action name="bidItem" class="org.onlinebusiness.servlet.StructsAction.BidStruts" method="executeBid">
             <result name="success" type="redirectAction">index</result>
             <result name="fail">/Fail.jsp</result>
+        </action>
+
+
+        <action name="viewProfile" class="org.onlinebusiness.servlet.StructsAction.ProfileStruts" method="viewOtherProfile">
+            <result name="success" >/OtherProfile.jsp</result>
         </action>
         	
     </package>
